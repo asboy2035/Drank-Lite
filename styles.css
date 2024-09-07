@@ -6,7 +6,8 @@ body {
   align-items: center;
   height: 100vh;
   overflow-y: hidden;
-  background: linear-gradient(180deg, rgb(157, 90, 226), white, white, cyan);
+  background-color: white;
+  /* background: linear-gradient(180deg, rgb(157, 90, 226), white, white, cyan); */
   /* background-size: 800% 800%;
   animation: gradientAnimation 30s ease infinite; */
 }
@@ -125,7 +126,8 @@ input {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: linear-gradient(180deg, rgb(72, 11, 135), black, black, rgb(11, 33, 135));
+    background-color: black;
+    /* background: linear-gradient(180deg, rgb(72, 11, 135), black, black, rgb(11, 33, 135)); */
     /* background-size: 800% 800%;
     animation: gradientAnimation 30s ease infinite; */
     color: white;
