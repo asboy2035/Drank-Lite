@@ -33,14 +33,38 @@ const drinks = {
     
     // Show congratulations message
     if (percentage >= 100) {
-      document.getElementById('congrats-message').textContent = 'Congratulations! You’ve reached your daily goal!';
+      document.getElementById('congrats-message').textContent = 'You’ve reached your daily goal.';
       document.getElementById('congrats-message').style.display = 'block';
+      document.getElementById('progress-text').style.display = 'none';
     } else {
       document.getElementById('congrats-message').style.display = 'none';
+      document.getElementById('progress-text').style.display = 'block';
     }
   }
   
-  // Log drink button event
+  // Modal handling
+  const modal = document.getElementById('log-modal');
+  const logWaterBtn = document.getElementById('log-water-btn');
+  const closeModalBtn = document.querySelector('.close-btn');
+  
+  // Open the modal when the button is clicked
+  logWaterBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+  
+  // Close the modal when the close button is clicked
+  closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+  
+  // Close the modal if the user clicks outside of it
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+  
+  // Log drink button inside modal
   document.getElementById('log-drink').addEventListener('click', () => {
     const selectedDrink = document.getElementById('drink-type').value;
     const amount = Number(document.getElementById('drink-amount').value);
@@ -52,6 +76,9 @@ const drinks = {
     localStorage.setItem('hydrationProgress', hydrationProgress);
   
     updateProgress();
+    
+    // Close the modal after logging
+    modal.style.display = 'none';
   });
   
   // Update daily goal
@@ -73,7 +100,7 @@ const drinks = {
   
   resetDailyProgress();
   updateProgress();
-
+  
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
     .then(() => console.log('Service Worker Registered'))
