@@ -1,10 +1,22 @@
 // Drinks JSON object
 const drinks = {
-    water: 1,  // 100% hydration
-    juice: 0.8,  // 80% hydration
-    soda: 0.6,   // 60% hydration
-    coffee: 0.5, // 50% hydration
-    tea: 0.7    // 70% hydration
+    "Water": 1.0,
+    "Juice": 0.95,
+    "Coconut Water": 0.9,
+    "Smoothie": 0.7,
+    "Soda": 0.8,
+    "Milkshake": 0.8,
+    "Milk": 1.3,
+    "Skim/Almond/Oat/Soy Milk": 0.9,
+    "Yogurt": 0.7,
+    "Tea": 0.9,
+    "Decaf Coffee": 0.9,
+    "Coffee": 0.6,
+    "Hot Chocolate": 0.8,
+    "Beer": -0.4,
+    "Wine": -0.95,
+    "Shot": -1.59,
+    "Whiskey/Brandy/Tequila/Gin/Rum": -3.18
   };
   
   // Set up variables
