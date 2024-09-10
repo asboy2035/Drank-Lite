@@ -161,7 +161,7 @@ a {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 @media (prefers-color-scheme: dark) {
