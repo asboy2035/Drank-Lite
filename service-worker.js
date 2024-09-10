@@ -27,12 +27,15 @@ self.addEventListener('fetch', event => {
           // Update the cache with the new network response
           return caches.open(cacheName).then(cache => {
             cache.put(event.request, networkResponse.clone());
-            document.getElementById('app-updated').classList.remove('hidden');
+            // Only show the update message if the request was not a reload
+            if (event.request.mode !== 'navigate') {
+              document.getElementById('app-updated').classList.remove('hidden');
+            }
             return networkResponse;
           });
         }).catch(() => {
           // If the network request fails, return the cached response
-          return cachedResponse || fetch(event.request);
+          return cachedResponse;
         });
       } else {
         // If offline, return the cached response or fallback to fetch if it's not cached
@@ -57,3 +60,4 @@ self.addEventListener('activate', event => {
     })
   );
 });
+
