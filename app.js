@@ -66,6 +66,8 @@ function updateProgress() {
   }
 }
 
+window.onload = updateProgress();
+
 // Log drink button inside modal
 document.getElementById('log-drink').addEventListener('click', () => {
   const selectedDrink = document.getElementById('drink-type').value;
@@ -111,3 +113,4 @@ if ('serviceWorker' in navigator) {
   .then(() => console.log('Service Worker Registered'))
   .catch(error => console.error('Service Worker registration failed:', error));
 }
+
