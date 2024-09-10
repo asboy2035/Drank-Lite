@@ -199,7 +199,7 @@ a {
 
 @media (max-width: 25rem) {
   .container, .progress {
-    max-width: 100%;
+    width: 100%;
   }
 }
 
