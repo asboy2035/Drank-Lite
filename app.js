@@ -43,11 +43,11 @@ Object.keys(drinks).forEach(drink => {
 function updateProgress() {
   const percentage = Math.min((hydrationProgress / dailyGoal) * 100, 100);
   document.getElementById('progress-bar').style.width = `${percentage}%`;
-  document.getElementById('progress-text').textContent = `You have consumed ${percentage.toFixed(1)}% of your daily goal.`;
+  document.getElementById('progress-text').textContent = `You've drank ${percentage.toFixed(1)}% of your goal.`;
 
   // Show congratulations message
   if (percentage >= 100) {
-    document.getElementById('congrats-message').textContent = 'You’ve reached your daily goal.';
+    document.getElementById('congrats-message').textContent = 'You’ve reached your goal!';
     document.getElementById('congrats-message').style.display = 'block';
     document.getElementById('progress-text').style.display = 'none';
     
