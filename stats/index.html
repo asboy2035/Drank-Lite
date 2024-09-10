@@ -6,7 +6,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta property="og:title" content="Drank Lite">
   <meta property="og:description" content="A simple and modern water tracker.">
-  <!-- <meta property="og:image" content="https://byteforge.pages.dev/Images/Preview.jpg"> -->
   <meta property="og:url" content="https://dranklite.pages.dev/stats">
   <title>Drank Lite</title>
   <link rel="stylesheet" href="/styles.css">
@@ -21,16 +20,19 @@
 
   <h1>Drinking Stats</h1>
   <div class="container">
-    <!-- Streak info -->
+    <h2>Your Streak</h2>
+    <p id="streak-info">You are on a 0-day streak.</p>
   </div>
 
   <div class="container">
-    <!-- Graph -->
+    <h2>Daily Hydration Log</h2>
+    <ul id="daily-log">
+      <!-- Daily stats will be added here -->
+    </ul>
   </div>
 
   <!-- Tab Bar -->
   <div class="tabBar">
-    <!-- <p>cool</p> -->
     <a href="/">
       <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M10.708 2.372a2.4 2.4 0 0 0-.71.686l-4.892 7.26c-1.981 3.314-1.22 7.466 1.767 9.882c2.969 2.402 7.286 2.402 10.254 0c2.987-2.416 3.748-6.569 1.795-9.836l-4.919-7.306c-.722-1.075-2.192-1.376-3.295-.686"/></svg>
     </a>
@@ -40,6 +42,20 @@
   </div>
 
   <!-- Script -->
-  <script src="/app.js"></script>
+  <script>
+    // Retrieve and display streak
+    const streak = Number(localStorage.getItem('streak')) || 0;
+    document.getElementById('streak-info').textContent = `You are on a ${streak}-day streak.`;
+
+    // Retrieve and display daily hydration log
+    const dailyStats = JSON.parse(localStorage.getItem('dailyStats')) || {};
+    const logContainer = document.getElementById('daily-log');
+    
+    Object.keys(dailyStats).forEach(day => {
+      const li = document.createElement('li');
+      li.textContent = `${day}: ${dailyStats[day].toFixed(1)} cups`;
+      logContainer.appendChild(li);
+    });
+  </script>
 </body>
 </html>
