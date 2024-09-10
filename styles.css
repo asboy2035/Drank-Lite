@@ -91,7 +91,6 @@ a {
   border-radius: 1rem;
   margin: 0.75rem 0;
   position: relative;
-  max-width: 15rem;
 }
 
 #progress-bar {
@@ -111,7 +110,6 @@ a {
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
-  max-width: 15rem;
   margin-top: 1.5rem;
   /* flex-wrap: wrap; */
   gap: 0.75rem;
@@ -197,14 +195,9 @@ a {
   }
 }
 
-@media (max-width: 25rem) {
-  .container, .progress {
-    width: 100%;
-  }
-}
-
 @media (min-width: 28rem) {
   .container, .progress {
     min-width: 25rem;
+    max-width: 35rem;
   }
 }
