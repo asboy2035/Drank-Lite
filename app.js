@@ -37,6 +37,7 @@ const drinks = {
     drinkSelect.appendChild(option);
   });
   
+  
   // Update progress bar and text
   function updateProgress() {
     const percentage = Math.min((hydrationProgress / dailyGoal) * 100, 100);
@@ -53,28 +54,7 @@ const drinks = {
       document.getElementById('progress-text').style.display = 'block';
     }
   }
-  
-  // Modal handling
-  const modal = document.getElementById('log-modal');
-  const logWaterBtn = document.getElementById('log-water-btn');
-  const closeModalBtn = document.querySelector('.close-btn');
-  
-  // Open the modal when the button is clicked
-  logWaterBtn.addEventListener('click', () => {
-    modal.style.display = 'flex';
-  });
-  
-  // Close the modal when the close button is clicked
-  closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-  
-  // Close the modal if the user clicks outside of it
-  window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
+
   
   // Log drink button inside modal
   document.getElementById('log-drink').addEventListener('click', () => {
@@ -118,3 +98,4 @@ const drinks = {
     .then(() => console.log('Service Worker Registered'))
     .catch(error => console.error('Service Worker registration failed:', error));
   }
+
