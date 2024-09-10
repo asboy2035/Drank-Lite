@@ -102,7 +102,7 @@ a {
   box-shadow: 0 0 3rem indigo;
   width: 0%;
   border-radius: 0.75rem;
-  transition: 0.3s ease-in-out;
+  /* transition: 0.3s ease-in-out; */
 }
 
 .container {
